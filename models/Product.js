@@ -24,24 +24,24 @@ Product.init(
       type: DataTypes.DECIMAL(5, 2), //sets 5 decimals to the left and 2 decimals to the right ex: xxxxx.yy
       allowNull: false,
       validate: {
-        isDeciaml: true, // prices can be decimal 
+        isDecimal: true, // prices can be decimal 
       },
     },
     stock: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 15,
       validate: {
-        isNumeric: true, //numeric here because stock would be whole
+        isNumeric: true, // numeric here because stock would be whole
     },
-  },
-  category_id: {
-    type: DataTypes.STRING,
-    references: {
-    model: 'Category',
-    key: 'id',  
-  },
-},
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
